@@ -25,7 +25,10 @@ let api: ChatGPTAPI | ChatGPTUnofficialProxyAPI
   if (process.env.OPENAI_API_KEY) {
     const options: ChatGPTAPIOptions = {
       apiKey: process.env.OPENAI_API_KEY,
-      debug: false,
+      debug: true,
+      completionParams: {
+        // model: 'davinci:ft-:saga-2023-03-07-08-35-20',
+      },
     }
     let fetchFn
     if (process.env.SOCKS_PROXY_HOST && process.env.SOCKS_PROXY_PORT) {
