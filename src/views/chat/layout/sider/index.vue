@@ -18,6 +18,8 @@ const collapsed = computed(() => appStore.siderCollapsed)
 
 function handleAdd() {
   chatStore.addHistory({ title: 'New Chat', uuid: Date.now(), isEdit: false })
+  if (isMobile.value)
+    appStore.setSiderCollapsed(true)
 }
 
 function handleUpdateCollapsed() {
@@ -71,22 +73,7 @@ watch(
       <main class="flex flex-col flex-1 min-h-0">
         <div class="p-4">
           <NButton dashed block @click="handleAdd">
-            <!-- 添加图标 -->
-            <span class="mr-2">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                class="h-5 w-5"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-              >
-                <path
-                  fill-rule="evenodd"
-                  d="M10 3a1 1 0 00-1 1v4H5a1 1 0 100 2h4v4a1 1 0 102 0v-4h4a1 1 0 100-2h-4V4a1 1 0 00-1-1z"
-                  clip-rule="evenodd"
-                />
-              </svg>
-            </span>
-            New chat
+            {{ $t('chat.newChatButton') }}
           </NButton>
         </div>
         <div class="flex-1 min-h-0 pb-4 overflow-hidden">
@@ -94,7 +81,7 @@ watch(
         </div>
         <div class="p-4">
           <NButton block @click="show = true">
-            Prompt Store
+            {{ $t('store.siderButton') }}
           </NButton>
         </div>
       </main>
