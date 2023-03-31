@@ -41,7 +41,7 @@ onMounted(() => {
   <NSpin :show="loading">
     <div class="p-4 space-y-4">
       <div class="p-2 space-y-2 rounded-md bg-neutral-100 dark:bg-neutral-700">
-        <p>请再法律允许的范围内进行提问与学习</p>
+        <p>请在法律允许的范围内进行提问与学习</p>
       </div>
       <p>{{ $t("setting.api") }}：{{ config?.apiModel ?? '-' }}</p>
       <p v-if="isChatGPTAPI">
